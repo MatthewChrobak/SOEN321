@@ -202,7 +202,7 @@
 				"sameSite": 0
 			}
 		},
-		"new": {
+		"added": {
 			"put_3320": {
 				"baseDomain": "rubiconproject.com",
 				"originAttributes": "",
@@ -1738,7 +1738,7 @@
 				"sameSite": 0
 			}
 		},
-		"new": {
+		"added": {
 			"RRC": {
 				"baseDomain": "yahoo.com",
 				"originAttributes": "",
@@ -2544,7 +2544,7 @@
 				"sameSite": 0
 			}
 		},
-		"new": {
+		"added": {
 			"RRC": {
 				"baseDomain": "yahoo.com",
 				"originAttributes": "",
@@ -3970,7 +3970,7 @@
 				"sameSite": 0
 			}
 		},
-		"new": {
+		"added": {
 			"bv-263442": {
 				"baseDomain": "acuityplatform.com",
 				"originAttributes": "",
@@ -5136,7 +5136,7 @@
 				"sameSite": 0
 			}
 		},
-		"new": {
+		"added": {
 			"cookie%2Dtest": {
 				"baseDomain": "timhortonswifi.com",
 				"originAttributes": "",

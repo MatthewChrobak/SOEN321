@@ -59,7 +59,7 @@ const transformed = data.then((tables) => {
     });
 });
 
-// 4. Generate report.
+// 5. Generate report.
 transformed.then(tables => {
     let compare = tables.shift(); // Get the first table that we are going to compare with.
     let names = Object.keys(compare); // Get the array of all all cookie names
@@ -69,7 +69,7 @@ transformed.then(tables => {
     tables.forEach((table) => {
         let cookies = {
             removed: {},
-            new: {}
+            added: {}
         };
 
         names.forEach((name) => {
@@ -80,7 +80,7 @@ transformed.then(tables => {
 
         _.difference(Object.keys(table), names)
             .forEach((name) => {
-                cookies.new[name] = table[name];
+                cookies.added[name] = table[name];
             });
 
         report[subjects.shift()] = cookies;
