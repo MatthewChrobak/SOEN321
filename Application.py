@@ -1,6 +1,7 @@
 from PathLinker import *
 from XmlLoader import *
 from LanIpIdentifier import *
+from DNSFinder import *
 
 
 # Get the file that we want to parse from the user.
@@ -14,6 +15,10 @@ ip = GetChunsLanIP(packets)
 
 # Display it to the user.
 print("Chun's LAN IP on this file is: " + str(ip))
+
+# Initializing hashtable.
+initHashtable(filepath)
+
 
 AllSources = AllSources(packets)
 
