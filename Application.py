@@ -14,3 +14,18 @@ ip = GetChunsLanIP(packets)
 
 # Display it to the user.
 print("Chun's LAN IP on this file is: " + str(ip))
+
+AllSources = AllSources(packets)
+
+print(AllSources)
+
+''' For searching individual users
+otherIP = GetOtherLanIP(packets)
+
+print("\nThese are the other IPs on this file: " + str(otherIP))
+
+user = input("\nWhich user would you like to look at: ")
+
+sources = GetSourceIP(user, packets)
+
+'''
