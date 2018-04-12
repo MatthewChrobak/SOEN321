@@ -2,11 +2,14 @@
 # local area network.
 
 from XmlLoader import GetProperty
+from DNSFinder import ipToDNS
 
-MacAddress = "Apple_c4:8c:97"
+MacAddress = "c4:b3:01:c4:8c:97"
 
 
 def GetChunsLanIP(parseData):
+    global LocalNetworkMask
+    
     # Get all the packets from the parse.
     packets = parseData["packet"]
 
@@ -17,6 +20,12 @@ def GetChunsLanIP(parseData):
     for i in range(0, len(packets)):
         packet = packets[i]
         if (GetProperty(packet, "Destination MAC") == MacAddress and GetProperty(packet, "Protocol") == "TCP"):
+
+            # Find the network mask.
+            LocalNetworkMask = GetProperty(packet, "Destination")
+            for x in range(0, 2):
+                LocalNetworkMask = LocalNetworkMask[0:LocalNetworkMask.rfind('.')]
+                
             return GetProperty(packet, "Destination")
 
 #To get a list of all users and all the sources
@@ -28,7 +37,7 @@ def AllSources(parseData):
         packet = packets[i]
         ip = str(GetProperty(packet, "Destination"))
 
-        if ip.startswith('192.168') and GetProperty(packet, "Destination MAC") != MacAddress \
+        if ip.startswith(LocalNetworkMask) and GetProperty(packet, "Destination MAC") != MacAddress \
                 and not GetProperty(packet, "Destination") in listOfIp and GetProperty(packet, "Protocol")=="TCP":
             listOfIp.append(GetProperty(packet, "Destination"))
             print('\n-------------------------------------------------------------')
@@ -40,8 +49,12 @@ def AllSources(parseData):
 
                 if GetProperty(packet, "Destination") == ip and not GetProperty(packet, "Source") in listofSources \
                         and GetProperty(packet, "Destination MAC") != MacAddress and GetProperty(packet, "Protocol")=="TCP":
-                    listofSources.append(GetProperty(packet, "Source"))
-                    print(GetProperty(packet, "Source"))
+                    ipValue = GetProperty(packet, "Source")
+                    dnsValue = ipToDNS(ipValue)
+
+                    # Add the IP to the list so that we won't list it again.
+                    listofSources.append(ipValue)
+                    print(dnsValue)
 
 ''' For looking at an individual user
 def GetOtherLanIP(parseData):

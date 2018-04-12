@@ -18,8 +18,8 @@ def initHashtable(filepath):
             lineData = line.split("\t")
 
             # Just to be clear c:
-            ip = lineData[0]
-            dnsValue = lineData[1]
+            ip = lineData[0].strip() 
+            dnsValue = lineData[1].strip()
 
             # Add the ip and dns pair into the hashtable
             Hashtable.update({ ip : dnsValue })
@@ -29,7 +29,7 @@ def initHashtable(filepath):
 def ipToDNS(ip):
     # Make sure the IP exists in the hashtable.
     if (ip in Hashtable):
-        return Hashtable[i]
+        return Hashtable[ip]
 
-    # Otherwise, return Null / None
-    return None
+    # Otherwise, return the IP back
+    return ip

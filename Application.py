@@ -22,7 +22,6 @@ initHashtable(filepath)
 
 AllSources = AllSources(packets)
 
-print(AllSources)
 
 ''' For searching individual users
 otherIP = GetOtherLanIP(packets)
