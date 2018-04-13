@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Michael/Desktop/321 Proj/Chun_Home.sqlite" foreign_keys="1"/><window><current_tab id="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2368"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="moz_cookies"/><default_encoding codec=""/><browsetable_info data="AAAAAQAAABYAbQBvAHoAXwBjAG8AbwBrAGkAZQBzAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////////8AAAAA/////w=="/></tab_browse><tab_sql><sql name="SQL 1">/*Cookies appearing on concordia but not @ Chun*/
+select * from moz_cookies_conc where not exists (select 'x' from moz_cookies_CH where moz_cookies_conc.baseDomain = moz_cookies_CH.baseDomain); 
+
+/*Cookies appearing on Parc de la cite but not @ Chun*/
+select * from moz_cookies_PDLC where not exists (select 'x' from moz_cookies_CH where moz_cookies_PDLC.baseDomain = moz_cookies_CH.baseDomain); 
+
+/*Cookies appearing on BK but not @ Chun*/
+select * from moz_cookies_BK where not exists (select 'x' from moz_cookies_CH where moz_cookies_BK.baseDomain = moz_cookies_CH.baseDomain); 
+
+/*Cookies appearing on mail champlain but not @ Chun*/
+select * from moz_cookies_MC where not exists (select 'x' from moz_cookies_CH where moz_cookies_MC.baseDomain = moz_cookies_CH.baseDomain); 
+
+/*Cookies appearing on Tim Hortons but not @ Chun*/
+select * from moz_cookies_TH where not exists (select 'x' from moz_cookies_CH where moz_cookies_TH.baseDomain = moz_cookies_CH.baseDomain); 
+
+/*
+CREATE TABLE `moz_cookies_CH` (
+	`id`	INTEGER,
+	`baseDomain`	TEXT,
+	`originAttributes`	TEXT NOT NULL DEFAULT '',
+	`name`	TEXT,
+	`value`	TEXT,
+	`host`	TEXT,
+	`path`	TEXT,
+	`expiry`	INTEGER,
+	`lastAccessed`	INTEGER,
+	`creationTime`	INTEGER,
+	`isSecure`	INTEGER,
+	`isHttpOnly`	INTEGER,
+	`inBrowserElement`	INTEGER DEFAULT 0,
+	`sameSite`	INTEGER DEFAULT 0,
+	CONSTRAINT `moz_uniqueid` UNIQUE(`name`,`host`,`path`,`originAttributes`),
+	PRIMARY KEY(`id`)
+);
+
+insert into moz_cookies_CH select * from CH.moz_cookies;
+
+CREATE TABLE `moz_cookies_conc` (
+	`id`	INTEGER,
+	`baseDomain`	TEXT,
+	`originAttributes`	TEXT NOT NULL DEFAULT '',
+	`name`	TEXT,
+	`value`	TEXT,
+	`host`	TEXT,
+	`path`	TEXT,
+	`expiry`	INTEGER,
+	`lastAccessed`	INTEGER,
+	`creationTime`	INTEGER,
+	`isSecure`	INTEGER,
+	`isHttpOnly`	INTEGER,
+	`inBrowserElement`	INTEGER DEFAULT 0,
+	`sameSite`	INTEGER DEFAULT 0,
+	CONSTRAINT `moz_uniqueid` UNIQUE(`name`,`host`,`path`,`originAttributes`),
+	PRIMARY KEY(`id`)
+);
+
+insert into moz_cookies_conc select * from concordia.moz_cookies;
+
+CREATE TABLE `moz_cookies_PDLC` (
+	`id`	INTEGER,
+	`baseDomain`	TEXT,
+	`originAttributes`	TEXT NOT NULL DEFAULT '',
+	`name`	TEXT,
+	`value`	TEXT,
+	`host`	TEXT,
+	`path`	TEXT,
+	`expiry`	INTEGER,
+	`lastAccessed`	INTEGER,
+	`creationTime`	INTEGER,
+	`isSecure`	INTEGER,
+	`isHttpOnly`	INTEGER,
+	`inBrowserElement`	INTEGER DEFAULT 0,
+	`sameSite`	INTEGER DEFAULT 0,
+	CONSTRAINT `moz_uniqueid` UNIQUE(`name`,`host`,`path`,`originAttributes`),
+	PRIMARY KEY(`id`)
+);
+
+insert into moz_cookies_PDLC select * from PDLC.moz_cookies;
+
+CREATE TABLE `moz_cookies_BK` (
+	`id`	INTEGER,
+	`baseDomain`	TEXT,
+	`originAttributes`	TEXT NOT NULL DEFAULT '',
+	`name`	TEXT,
+	`value`	TEXT,
+	`host`	TEXT,
+	`path`	TEXT,
+	`expiry`	INTEGER,
+	`lastAccessed`	INTEGER,
+	`creationTime`	INTEGER,
+	`isSecure`	INTEGER,
+	`isHttpOnly`	INTEGER,
+	`inBrowserElement`	INTEGER DEFAULT 0,
+	`sameSite`	INTEGER DEFAULT 0,
+	CONSTRAINT `moz_uniqueid` UNIQUE(`name`,`host`,`path`,`originAttributes`),
+	PRIMARY KEY(`id`)
+);
+
+insert into moz_cookies_BK select * from BK.moz_cookies;
+
+
+CREATE TABLE `moz_cookies_MC` (
+	`id`	INTEGER,
+	`baseDomain`	TEXT,
+	`originAttributes`	TEXT NOT NULL DEFAULT '',
+	`name`	TEXT,
+	`value`	TEXT,
+	`host`	TEXT,
+	`path`	TEXT,
+	`expiry`	INTEGER,
+	`lastAccessed`	INTEGER,
+	`creationTime`	INTEGER,
+	`isSecure`	INTEGER,
+	`isHttpOnly`	INTEGER,
+	`inBrowserElement`	INTEGER DEFAULT 0,
+	`sameSite`	INTEGER DEFAULT 0,
+	CONSTRAINT `moz_uniqueid` UNIQUE(`name`,`host`,`path`,`originAttributes`),
+	PRIMARY KEY(`id`)
+);
+
+insert into moz_cookies_MC select * from champlain.moz_cookies;
+
+CREATE TABLE `moz_cookies_TH` (
+	`id`	INTEGER,
+	`baseDomain`	TEXT,
+	`originAttributes`	TEXT NOT NULL DEFAULT '',
+	`name`	TEXT,
+	`value`	TEXT,
+	`host`	TEXT,
+	`path`	TEXT,
+	`expiry`	INTEGER,
+	`lastAccessed`	INTEGER,
+	`creationTime`	INTEGER,
+	`isSecure`	INTEGER,
+	`isHttpOnly`	INTEGER,
+	`inBrowserElement`	INTEGER DEFAULT 0,
+	`sameSite`	INTEGER DEFAULT 0,
+	CONSTRAINT `moz_uniqueid` UNIQUE(`name`,`host`,`path`,`originAttributes`),
+	PRIMARY KEY(`id`)
+);
+
+insert into moz_cookies_TH select * from TH.moz_cookies;
+*/</sql><current_tab id="0"/></tab_sql></sqlb_project>

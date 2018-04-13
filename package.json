@@ -1,0 +1,25 @@
+{
+  "name": "soen321",
+  "version": "1.0.0",
+  "description": "",
+  "main": "report.js",
+  "dependencies": {
+    "knex": "^0.14.5",
+    "lodash": "^4.17.5",
+    "sqlite3": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatthewChrobak/SOEN321.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatthewChrobak/SOEN321/issues"
+  },
+  "homepage": "https://github.com/MatthewChrobak/SOEN321#readme"
+}
